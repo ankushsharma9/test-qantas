@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>test</div>
+    <div id='q-container'
+  ></div>
+    <script src='https://cdn.stg.qantasloyalty.com/appcache/wid-redemptions-button/master/0.0.0/qantas.min.js'>
+
+    (function(){
+        window['qantas'].Button.render(
+              {
+                Client: {
+                  id: '55580f1c-1cca-41fe-80e3-4e0070cc9e51',
+                  name: 'FortyWinks',
+                },
+                payment: function (actions) {
+                  let amountValue =
+                    checkoutDetails?.cartSummary?.summary?.orderTotal?.amount
+                  return actions.createQuote(amountValue, cart)
+                },
+                onAuthorize: function (data) {
+                  onAuthorize(data)
+                },
+                onError: function () {
+                  // Here you can get information on what failed
+                  setShow(false)
+                },
+                onLoad: function () {
+                  // Here you can listen to an event when the widget
+                },
+                onClicked: function () {
+                  // Here you can listen to an event when the member
+                  // clicks on the "Use Qantas Points" button
+                },
+                onClosed: function () {
+                  // Here you can listen to an event when the member
+                  // closes the redemption widget window, either with cancel or
+                  // closing the popup window
+                  setShow(false)
+                },
+              },
+              '#q-container'
+            )
+    })()
+    </script>
+</body>
+</html>
